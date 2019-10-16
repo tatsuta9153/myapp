@@ -1,0 +1,10 @@
+
+<h1>投稿画面</h1>
+<%= form_for (@tweet) do |f| %>
+<%= f.hidden_field :name  , :value => @name%><br>
+<%= f.label :タイトル %><br>
+<%= f.text_field :title %><br>
+<%= f.label :コンテンツ %><br>
+<%= f.text_area :content %><br>
+<%= f.submit :投稿 %><br>
+<% end%>

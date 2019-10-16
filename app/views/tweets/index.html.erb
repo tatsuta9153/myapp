@@ -1,0 +1,22 @@
+<% i = 0%>
+<h1>投稿一覧</h1>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>名前</th>
+    <th>タイトル</th>
+    <th>コンテンツ</th>
+    <th>詳細</th>
+    <th>削除</th>
+  </tr>
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= i = i + 1 %></td>
+    <td><%= tweet.name%></td>
+    <td><%= tweet.title %></td>
+    <td><%= tweet.content %></td>
+    <td class="syousai"><%= link_to '詳細', "/tweets/show/"+tweet.id.to_s, class: 'btn btn-outline-info' %></td>
+    <td class="sakujo"><%= link_to '削除', "/tweets/destroy/"+tweet.id.to_s,  class: 'btn btn-outline-info' %></td>
+  </tr>
+  <%  end%>
+</table>
