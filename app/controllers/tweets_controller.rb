@@ -19,6 +19,7 @@ class TweetsController < ApplicationController
       @tweet.name = params[:tweet][:name]
       @tweet.title = params[:tweet][:title]
       @tweet.content = params[:tweet][:content]
+      @tweet.picture = params[:tweet][:picture]
       @tweet.save
       redirect_to "/tweets/index"
     end
@@ -42,7 +43,7 @@ class TweetsController < ApplicationController
     end
 
   def tweet_params
-    params.require(:tweet).permit(:name,:id,:title,:content)
+    params.require(:tweet).permit(:name,:id,:title,:content,:picture)
   end
 
   def cuurent_name?(user)

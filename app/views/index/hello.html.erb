@@ -1,12 +1,39 @@
+<%
+i =0;
+%>
+
 <div class="a">
   <h1>記事投稿サイトβ</h1>
-  <h2>まずはログインしてください</h2>
-<br>
-   <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-     <!-- ユーザーがログインしていた時の処理 -->
-     <h2> 現在 <%= current_user.name %> さんがログインしています </h2> <!-- ここを追加します -->
-     <h4> メールアドレス： <%= current_user.email %> </h4>
-     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+  <br>
+  <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+    <h2> ようこそ<%= current_user.name %> さん</h2> <!-- ここを追加します -->
+    <h4> メールアドレス： <%= current_user.email %> </h4>
+    <br>
+    <h2>あなたの投稿</h2>
+     <table>
+        <tr>
+         <th>No.</th>
+         <th>名前</th>
+         <th>タイトル</th>
+         <th>コンテンツ</th>
+         <th>詳細</th>
+         <th>削除</th>
+        </tr>
+        <% @tweet.each do |tweet| %>
+          <% if tweet.name == current_user.name %>
+           <tr>
+             <td><%= i = i + 1 %></td>
+             <td><%= tweet.name%></td>
+             <td><%= tweet.title %></td>
+             <td><%= tweet.content %></td>
+             <td class="syousai"><%= link_to '詳細', "/tweets/show/"+tweet.id.to_s, class: 'btn btn-outline-info' %></td>
+             <td class="sakujo"><%= link_to '削除', "/tweets/destroy/"+tweet.id.to_s,  class: 'btn btn-outline-info' %></td>
+           </tr>
+           <% end %>
+         <% end %>
+       </table>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+
    <% else %>
       <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
       <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->

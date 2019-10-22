@@ -1,5 +1,6 @@
 <h1><%= @tweet.title%></h1>
 <h2><%= @tweet.name%></h2>
+<h2><%= image_tag(@tweet.picture_url) if @tweet.picture.present? %></h2>
 <br>
 <p><%= @tweet.content%></p>
 <%= link_to "編集", "/tweets/edit/" + @tweet.id.to_s %>
