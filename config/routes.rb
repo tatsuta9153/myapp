@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+  get 'likes/destroy'
  # ↓indexのルーティング  
   get "/" => "index#hello"
  # ↓tweetのルーティング
@@ -13,5 +15,8 @@ Rails.application.routes.draw do
   patch "tweets/edit/:id"    => "tweets#update"
  # ↓deviseのルーティング
   devise_for :users
+ #↓likesのルーティング
+ post "likes/create/:id"  => "likes#create"
+ post "likes/destroy/:id"  => "likes#destroy"
 
 end

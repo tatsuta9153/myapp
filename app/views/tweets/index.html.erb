@@ -6,8 +6,8 @@
     <th>名前</th>
     <th>タイトル</th>
     <th>コンテンツ</th>
+    <th>いいね数</th>
     <th>詳細</th>
-    <th>削除</th>
   </tr>
 <% @tweets.each do |tweet| %>
   <tr>
@@ -15,8 +15,8 @@
     <td><%= tweet.name%></td>
     <td><%= tweet.title %></td>
     <td><%= tweet.content %></td>
+    <td><%= tweet.like %></td>
     <td class="syousai"><%= link_to '詳細', "/tweets/show/"+tweet.id.to_s, class: 'btn btn-outline-info' %></td>
-    <td class="sakujo"><%= link_to '削除', "/tweets/destroy/"+tweet.id.to_s,  class: 'btn btn-outline-info' %></td>
   </tr>
   <%  end%>
 </table>

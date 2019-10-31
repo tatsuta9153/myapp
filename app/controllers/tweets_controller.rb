@@ -5,7 +5,8 @@ class TweetsController < ApplicationController
 
     def show
       @tweet = Tweet.find_by(:id => params[:id])
-
+      @like_count = Like.where(tweet_id: params[:id]).count
+      @iine = iine?(current_user.id,params[:id])
     end
 
     def new
@@ -46,13 +47,17 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:name,:id,:title,:content,:picture)
   end
 
-  def cuurent_name?(user)
-    if user then
-      @name = user.name
+  def iine?(user_id,tweet_id)
+    str = Like.where(user_id: current_user.id ,tweet_id: params[:id])
+    if str.length == 0  then
+      return false
     else
-      @name = "ゲスト"
+      return true
     end
   end
+
+
+
 
 
 end

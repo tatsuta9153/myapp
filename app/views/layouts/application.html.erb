@@ -15,26 +15,20 @@
 
   </head>
 
+  <% if user_signed_in? %>
+   <nav>
+    <ul>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/tweets/index">投稿一覧</a></li>
+      <li><a href="/tweets/new">投稿</a></li>
+      <li><h2><%= current_user.name %> さん </h2></li> 
+    </ul>
+   </nav>
+  <% end %>
+<body>
+  <div class="main">
+       <%= yield %>
+  </div>
 
-  <nav>
-  <ul>
-  <li><a href="/">ホーム</a></li>
-  <li><a href="/tweets/index">投稿一覧</a></li>
-  <li><a href="/tweets/new">投稿</a></li>
-  <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
-  <li><h2><%= current_user.name %> さん </h2></li> <!-- ここを追加します -->
-<% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
-  <li><h2> ゲストさん </h2></li>
-<% end %>
-  </ul>
-
-  </nav>
-    <body>
-      <div class="main">
-          <%= yield %>
-      </div>
-
-  </body>
+</body>
 </html>

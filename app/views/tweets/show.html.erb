@@ -3,4 +3,15 @@
 <h2><%= image_tag(@tweet.picture_url) if @tweet.picture.present? %></h2>
 <br>
 <p><%= @tweet.content%></p>
-<%= link_to "編集", "/tweets/edit/" + @tweet.id.to_s %>
+
+
+<% if user_signed_in? %>
+    <%if @tweet.name == current_user.name%>
+        <%= link_to "編集", "/tweets/edit/" + @tweet.id.to_s %>
+    <%else%>
+
+    <div class="buttons_<%= @tweet.id %>"><%= render partial: 'likes/like' %></div>    
+    <% end %>
+
+
+<% end %>

@@ -1,0 +1,12 @@
+
+<% if @iine %>
+<div class="like_button_on">
+<%= link_to "いいね済み", "/likes/destroy/" + @tweet.id.to_s, method: "post", remote: true %>
+<%= @like_count %>
+</div>
+<% else %>
+<div class="like_button">
+<%= link_to "いいね", "/likes/create/" + @tweet.id.to_s, method: "post", remote: true %>
+<%= @like_count %>
+</div>
+<% end %>
