@@ -1,7 +1,6 @@
-
 <h1>投稿画面</h1>
 <%= form_for (@tweet) do |f| %>
-<%= f.hidden_field :name  , :value => @name%><br>
+<%= f.hidden_field :name  , :value => current_user.name %><br>
 <%= f.file_field :picture%><br>
 <%= f.label :タイトル %><br>
 <%= f.text_field :title %><br>

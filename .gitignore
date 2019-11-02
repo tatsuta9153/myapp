@@ -29,3 +29,30 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+Gemfile
+Gemfile.lock
+.vscode/launch.json
+app/assets/javascripts/application.js
+app/assets/javascripts/likes.coffee
+app/controllers/index_controller.rb
+app/controllers/likes_controller.rb
+app/controllers/tweets_controller.rb
+app/models/tweet.rb
+app/views/index/_ranking.html.erb
+app/views/index/hello.html.erb
+app/views/tweets/edit.html.erb
+app/views/tweets/new.html.erb
+public/uploads/tmp/1572710480-499417593347716-0001-9059/t1.jpeg
+public/uploads/tmp/1572710942-350928705013589-0001-3781/t1.jpeg
+Gemfile
+Gemfile.lock
+app/assets/javascripts/application.js
+app/assets/javascripts/likes.coffee
+app/controllers/index_controller.rb
+app/controllers/likes_controller.rb
+app/controllers/tweets_controller.rb
+app/models/tweet.rb
+app/views/index/hello.html.erb
+app/views/tweets/edit.html.erb
+app/views/tweets/new.html.erb
+.gitignore

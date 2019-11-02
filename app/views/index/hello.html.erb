@@ -31,7 +31,10 @@ i =0;
            </tr>
            <% end %>
          <% end %>
-       </table>
+      </table>
+      <h2>いいねランキング</h2>
+      <%= render partial: 'index/ranking' %>
+
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
 
    <% else %>

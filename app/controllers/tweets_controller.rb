@@ -11,8 +11,6 @@ class TweetsController < ApplicationController
 
     def new
       @tweet = Tweet.new
-      cuurent_name?(current_user)
-
     end
 
     def create
@@ -27,7 +25,6 @@ class TweetsController < ApplicationController
 
     def edit
       @tweet = Tweet.find_by(:id => params[:id])
-      cuurent_name?(current_user)
 
     end
 
@@ -55,9 +52,5 @@ class TweetsController < ApplicationController
       return true
     end
   end
-
-
-
-
 
 end
