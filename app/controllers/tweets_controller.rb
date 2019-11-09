@@ -1,6 +1,11 @@
 class TweetsController < ApplicationController
     def index
+      @array = []
+
       @tweets = Tweet.all
+      @tweets.each do |t|
+        @array.push(Like.where(tweet_id: t.id).count)
+      end
     end
 
     def show
@@ -52,5 +57,6 @@ class TweetsController < ApplicationController
       return true
     end
   end
+
 
 end

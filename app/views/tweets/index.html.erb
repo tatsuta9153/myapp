@@ -15,7 +15,7 @@
     <td><%= tweet.name%></td>
     <td><%= tweet.title %></td>
     <td><%= tweet.content %></td>
-    <td><%= tweet.like %></td>
+    <td><%= @array[i - 1] %></td>
     <td class="syousai"><%= link_to '詳細', "/tweets/show/"+tweet.id.to_s, class: 'btn btn-outline-info' %></td>
   </tr>
   <%  end%>
