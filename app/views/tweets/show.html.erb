@@ -8,6 +8,8 @@
 <% if user_signed_in? %>
     <%if @tweet.name == current_user.name%>
         <%= link_to "編集", "/tweets/edit/" + @tweet.id.to_s %>
+        <%= link_to '削除', "/tweets/destroy/"+@tweet.id.to_s %>
+
     <%else%>
 
     <div class="buttons_<%= @tweet.id %>"><%= render partial: 'likes/like' %></div>    

@@ -1,4 +1,7 @@
 class IndexController < ApplicationController
+  helper_method :ranku_seiri
+
+
   def hello
     @array = []
     @tweet = Tweet.all
@@ -9,7 +12,14 @@ class IndexController < ApplicationController
     end
   end
 
- def ranku_seiri()
-  
+ def ranku_seiri(one,two)
+
+    if one == two
+      false
+    else
+      true
+    end
+  end
+
 
 end
